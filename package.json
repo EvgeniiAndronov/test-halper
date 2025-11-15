@@ -1,0 +1,112 @@
+{
+  "name": "test-helper",
+  "displayName": "Test Helper",
+  "description": "Generate tests for your functions with one click",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "testhelper.hello",
+        "title": "Say Hello",
+        "category": "Test Helper"
+      },
+      {
+        "command": "testhelper.generateTest",
+        "title": "Generate Test for Function",
+        "category": "Test Helper"
+      },
+      {
+        "command": "testhelper.showPanel",
+        "title": "Show Test Helper Panel",
+        "category": "Test Helper"
+      },
+      {
+        "command": "testhelper.showTemplates",
+        "title": "Configure Test Templates",
+        "category": "Test Helper"
+      },
+      {
+      "command": "testhelper.debugTemplates",
+      "title": "Debug Templates",
+      "category": "Test Helper"
+    }
+    ],
+    "menus": {
+      "command-palette": [
+        {
+          "command": "testhelper.hello"
+        },
+        {
+          "command": "testhelper.showPanel"
+        },
+        {
+          "command": "testhelper.showTemplates"
+        },
+        {
+          "command": "testhelper.debugTemplates"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Test Helper",
+      "properties": {
+        "testHelper.testFramework": {
+          "type": "string",
+          "enum": [
+            "pytest",
+            "unittest",
+            "googleTest",
+            "catch2"
+          ],
+          "default": "pytest",
+          "description": "Default test framework"
+        },
+        "testHelper.testLocation": {
+          "type": "string",
+          "enum": [
+            "sameDir",
+            "testsDir",
+            "custom"
+          ],
+          "default": "testsDir",
+          "description": "Where to create test files"
+        },
+        "testHelper.pythonTemplate": {
+          "type": "string",
+          "default": "import pytest\n\ndef test_{function_name}():\n    \"\"\"Test for {function_name} function\"\"\"\n    # TODO: Add test implementation\n    # result = {function_name}({parameters})\n    # assert result == expected_value\n    pass",
+          "description": "Python test template. Use {function_name} for function name and {parameters} for parameters"
+        },
+        "testHelper.cppTemplate": {
+          "type": "string",
+          "default": "// Test for {function_name} function\n// TODO: Implement Google Test or Catch2 test\nTEST({function_name}Test, BasicTest) {\n    // Add test implementation\n}",
+          "description": "C++ test template. Use {function_name} for function name"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.4.4"
+  }
+}
