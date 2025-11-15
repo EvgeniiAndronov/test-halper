@@ -1,15 +1,39 @@
 {
   "name": "test-helper",
   "displayName": "Test Helper",
-  "description": "Generate tests for your functions with one click",
-  "version": "0.0.1",
+  "description": "Generate tests for your functions with one click. Supports Python, C++ and more.",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
     "Testing",
+    "Programming Languages",
     "Other"
   ],
+  "keywords": [
+    "test",
+    "testing",
+    "pytest",
+    "unittest",
+    "google test", 
+    "catch2",
+    "python",
+    "cpp",
+    "c++",
+    "generate tests",
+    "test automation"
+  ],
+  "publisher": "evgeniiandronov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EvgeniiAndronov/test-halper"
+  },
+  "homepage": "https://github.com/EvgeniiAndronov/test-halper",
+  "bugs": {
+    "url": "https://github.com/EvgeniiAndronov/test-halper/issues"
+  },
+  "license": "MIT",
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -37,10 +61,10 @@
         "category": "Test Helper"
       },
       {
-      "command": "testhelper.debugTemplates",
-      "title": "Debug Templates",
-      "category": "Test Helper"
-    }
+        "command": "testhelper.debugTemplates",
+        "title": "Debug Templates",
+        "category": "Test Helper"
+      }
     ],
     "menus": {
       "command-palette": [
